@@ -104,6 +104,9 @@ class			{return CLASS;}
 ">" |
 "_" |
 "-" |
+"/" |
+"!" |
+"&" |
 ")"                         {return yytext().charAt(0);}
 "=="                        {return EQUALS;}
 {WHITESPACE}+               { }
