@@ -21,6 +21,21 @@ public static int PRIVATE = 262;
 public static int CLASS		= 263;
 public static int EQUALS	= 264;
 
+public static int NEW	    = 265;
+public static int THIS	  = 266;
+public static int BOOLEAN	= 267;
+public static int WHILE	  = 268;
+public static int RETURN	= 269;
+public static int TRUE	  = 270;
+public static int FALSE	  = 271;
+public static int INT	    = 272;
+public static int STATIC	= 273;
+public static int SOUT	  = 274;
+public static int VOID	  = 275;
+public static int MAIN	  = 276;
+public static int STRING	= 277;
+public static int EXTENDS	= 278;
+public static int AND	    = 279;
 
 /**
    * Runs the scanner on input files.
@@ -73,7 +88,7 @@ public static int EQUALS	= 264;
 %}
 
 DIGIT=		[0-9]
-LETTER=		[a-zA-Z]
+LETTER=		[a-zA-Z_]
 WHITESPACE=	[ \t]
 LineTerminator = \r|\n|\r\n    
 
@@ -85,6 +100,21 @@ else			{return ELSE;}
 public		{return PUBLIC;}
 private		{return PRIVATE;}
 class			{return CLASS;}
+new       {return NEW;}
+this      {return THIS;}
+boolean   {return BOOLEAN;}
+while     {return WHILE;}
+return    {return RETURN;}
+false     {return FALSE;}
+true      {return TRUE;}
+int       {return INT;}
+static    {return STATIC;}
+void      {return VOID;}
+main      {return MAIN;}
+String    {return STRING;}
+extends   {return EXTENDS;}
+"&&"        {return AND;}
+System.out.println {return SOUT;}
 
 {LETTER}({LETTER}|{DIGIT})* {return IDENT;}
 {DIGIT}+                    {return NUM;}

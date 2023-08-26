@@ -89,8 +89,7 @@ class BS{
 	}
 	return count01 ;	
     }
-
-    
+  
     // This method compares two integers and
     // returns true if they are equal and false
     // otherwise
