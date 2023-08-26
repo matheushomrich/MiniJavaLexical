@@ -1,12 +1,24 @@
-JFLEX  = jflex
-JAVAC  = javac
+# Compiler
+JC := javac
 
-# targets:
+# JFlex executable
+JFLEX := jflex
+
+# Source file
+LEX_SRC := MiniJavaLexical.flex
+JAVA_SRC := MiniJavaLexical.java
+
+# Phony targets
+.PHONY: all clean
+
+# Default target
+all: $(JAVA_SRC)
+	$(JC) $(JAVA_SRC)
+
+# Rule to generate Java source from JFlex specification
+$(JAVA_SRC): $(LEX_SRC)
+	$(JFLEX) $(LEX_SRC)
+
+# Clean generated files
 clean:
-    rm -f *~ *.class Yylex.java
-
-AsdrSample.class: MiniJavaLexical.java MiniJavaLexical.java
-    $(JAVAC) AsdrSample.java
-
-Yylex.java: MiniJavaLexical.flex
-    $(JFLEX) MiniJavaLexical.flex
+	rm -f $(JAVA_SRC) *.class
